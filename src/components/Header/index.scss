@@ -1,35 +1,35 @@
-@import '../../styling/colors.scss';
-@import '../../styling/media-queries';
+@use '../../styling/colors' as colors;
+@use '../../styling/media-queries' as mq;
 
 .HeaderComponent {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: $bloody-mimosa;
+    background: colors.$bloody-mimosa;
     color: white;
     font-size: 1.2rem;
     padding-left: 1rem;
     padding-right: 1rem;
     position: sticky;
     height: 10vh;
-    @include from-small() {
+    @include mq.from-small() {
         padding-left: calc(50% - 220px);
         padding-right: calc(50% - 220px);
     }
 
-    @include from-medium() {
+    @include mq.from-medium() {
         justify-content: space-between;
         position: relative;
         padding-left: calc(50% - 300px);
         padding-right: calc(50% - 300px);
     }
 
-    @include from-semi-large() {
+    @include mq.from-semi-large() {
         padding-left: calc(50% - 320px);
         padding-right: calc(50% - 320px);
     }
 
-    @include from-large() {
+    @include mq.from-large() {
         padding-left: 15%;
         padding-right: 15%;
     }
@@ -50,19 +50,19 @@
         transform-origin: top;
         width: 100%;
 
-        @include from-medium() {
+        @include mq.from-medium() {
             all: unset;
             transform: scale(1, 1);
         }
 
         ul {
-            background: $bloody-mimosa;
+            background: colors.$bloody-mimosa;
             list-style: none;
             margin: 0;
             padding: 1rem 0 0 0;
             text-align: left;
 
-            @include from-medium() {
+            @include mq.from-medium() {
                 display: flex;
                 flex-direction: row;
                 background: none;
@@ -78,7 +78,7 @@
                     text-decoration: none;
                     transition: opacity 200ms ease-in-out;
 
-                    @include from-medium() {
+                    @include mq.from-medium() {
                         opacity: 1;
                     }
                 }
@@ -106,7 +106,7 @@
         top: 0;
         width: 70px;
 
-        @include from-medium() {
+        @include mq.from-medium() {
             display: none;
         }
     }

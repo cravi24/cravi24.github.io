@@ -1,10 +1,10 @@
-@import '../../styling/media-queries';
+@use '../../styling/media-queries' as mq;
 
 .TechSkillsComponent {
     grid-area: tech;
     margin-bottom: 1rem;
 
-    @include from-large(){
+    @include mq.from-large(){
         margin-bottom: 2rem;
     }
 }

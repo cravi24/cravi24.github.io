@@ -1,10 +1,10 @@
-@import '../../styling/media-queries';
+@use '../../styling/media-queries' as mq;
 
 .contact {
     word-wrap: break-word;
     grid-area: contact;
 
-    @include from-large(){
+    @include mq.from-large(){
         margin-bottom: 2rem;
     }
 

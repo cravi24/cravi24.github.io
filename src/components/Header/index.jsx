@@ -30,22 +30,22 @@ function Header() {
       <nav className={`nav-items ${showNavItems ? 'visible' : ''}`}>
         <ul>
           <li>
-            <NavLink to={AppRoutes.ResumeBuilder} activeClassName="active">
+            <NavLink to={AppRoutes.ResumeBuilder} className={({ isActive }) => isActive ? 'active' : ''}>
             Resume Builder
             </NavLink>
           </li>
           <li>
-            <NavLink to={AppRoutes.TechBlogs} activeClassName="active">
+            <NavLink to={AppRoutes.TechBlogs} className={({ isActive }) => isActive ? 'active' : ''}>
             Tech Blogs
             </NavLink>
           </li>
           <li>
-            <NavLink to={AppRoutes.PersonalBlogs} activeClassName="active">
+            <NavLink to={AppRoutes.PersonalBlogs} className={({ isActive }) => isActive ? 'active' : ''}>
             Personal Blogs
             </NavLink>
           </li>
           <li>
-            <NavLink to={AppRoutes.AboutMe} activeClassName="active">
+            <NavLink to={AppRoutes.AboutMe} className={({ isActive }) => isActive ? 'active' : ''}>
               About me
             </NavLink>
           </li>

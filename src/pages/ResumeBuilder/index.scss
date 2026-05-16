@@ -1,4 +1,4 @@
-@import '../../styling/media-queries';
+@use '../../styling/media-queries' as mq;
 
 .resume-container {
     margin: 1rem 0;
@@ -12,22 +12,22 @@
         'education'
         'skills';
 
-    @include from-small() {
+    @include mq.from-small() {
         padding-left: calc(50% - 220px);
         padding-right: calc(50% - 220px);
     }
 
-    @include from-medium() {
+    @include mq.from-medium() {
         padding-left: calc(50% - 300px);
         padding-right: calc(50% - 300px);
     }
 
-    @include from-semi-large() {
+    @include mq.from-semi-large() {
         padding-left: calc(50% - 320px);
         padding-right: calc(50% - 320px);
     }
 
-    @include from-large() {
+    @include mq.from-large() {
         position: relative;
         padding-left: 15%;
         padding-right: 15%;
@@ -67,14 +67,14 @@
 
     .work {
         grid-area: work;
-        @include from-large() {
+        @include mq.from-large() {
             margin-left: 2rem;
         }
     }
 
     .education {
         grid-area: education;
-        @include from-large() {
+        @include mq.from-large() {
             margin-left: 2rem;
         }
     }
