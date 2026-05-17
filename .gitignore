@@ -25,3 +25,4 @@ yarn-error.log*
 
 # Claude Code local overrides (may contain personal paths / secrets)
 .claude/settings.local.json
+CLAUDE_LEARNING_GUIDE.md
