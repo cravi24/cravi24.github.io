@@ -1,70 +1,104 @@
-# Getting Started with Create React App
+# Personal portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Personal portfolio + interactive resume builder with multiple templates, light/dark theme, print/PDF-ready output.
 
-## Available Scripts
+**Live:** [cravi24.github.io](http://cravi24.github.io)
 
-In the project directory, you can run:
+## Features
 
-### `yarn start`
+- **Editable resume** — fill in personal info, summary, experience (with nested achievements), skills, education; persisted to `localStorage` (`resume-builder.user-data.v1`).
+- **Empty-state fallback** — preview always renders. Fields you haven't filled fall through to dummy data; sections show a `dummy` badge in the editor.
+- **Light / dark theme** — toggle in header. Honors `prefers-color-scheme` on first visit, persists to `localStorage`.
+- **Print/PDF-ready**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Tech
 
-### `yarn test`
+- React 19.2 · Vite 7 · react-router-dom 7
+- Sass (modern `@use`/`@forward` namespacing)
+- CSS variables for theming
+- No backend — pure client-side, deploys as static files
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting started
 
-### `yarn build`
+Requires Node ≥ 18. Project pins Node 24 via `.nvmrc`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```bash
+nvm use         # picks Node 24 if you use nvm
+npm install
+npm run dev
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Open [http://localhost:5173/resume-builder/](http://localhost:5173/resume-builder/).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Scripts
 
-### `yarn eject`
+| Command | What it does |
+|---|---|
+| `npm run dev` | Vite dev server with HMR |
+| `npm run build` | Production build into `dist/` |
+| `npm run preview` | Serve the built bundle locally |
+| `npm run deploy` | Build + push `dist/` to `gh-pages` branch |
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Project structure
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+src/
+├── components/
+│   ├── App/             # router shell
+│   ├── Header/          # nav + theme toggle
+│   ├── Footer/
+│   ├── Gear/            # SVG gear with CSS-rotation
+│   ├── ResumeEditor/    # accordion-style editor with reorder/duplicate
+│   ├── TemplatePicker/  # custom dropdown (no native select)
+│   ├── ThemeToggle/
+│   └── SocialIcons/     # inline SVG icons + URL/handle helpers
+├── pages/
+│   ├── Home/            # EM portfolio + clockwork hero
+│   ├── ResumeBuilder/   # split-view: editor left, preview right
+│   ├── AboutMe/
+│   ├── TechBlogsPage/
+│   └── PersonalBlogs/
+├── templates/
+│   ├── Modern/          # single-column, teal accent
+│   ├── Traditional/     # two-column serif sidebar
+│   ├── BerlinModern/    # Notion/Linear minimal
+│   └── BerlinStartup/   # bold gradient hero
+├── data/
+│   └── dummyResume.em.js  # default content shown when fields are empty
+├── hooks/
+│   ├── useResume.js     # state + localStorage + merge-with-dummy
+│   └── useTheme.js      # dark/light state + persistence
+└── styling/
+    ├── colors.scss
+    └── media-queries.scss
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Theme system
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+CSS variables on `:root` (dark default) and `:root[data-theme='light']`:
 
-## Learn More
+```css
+:root {
+  --bg-page: #0a0e1a;
+  --text-primary: #f0ead6;
+  --accent: #c89b3c;
+  /* ... */
+}
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Toggling sets the `data-theme` attribute on `<html>`. Templates intentionally stay on a white background regardless of theme to preserve print quality.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Deploy
 
-### Code Splitting
+`npm run deploy` does:
+1. `npm run build` → builds into `dist/`.
+2. `gh-pages -d dist` → force-pushes `dist/` to the `gh-pages` branch.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+GitHub Pages serves from that branch at the URL in `package.json`'s `homepage` field.
 
-### Analyzing the Bundle Size
+## Notes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- `node_modules` and `dist/` are gitignored.
+- `.claude/settings.local.json` is gitignored (for personal/local Claude Code config overrides).
+- The Claude Code learning guide at `CLAUDE_LEARNING_GUIDE.md` is gitignored — it's a local document, not part of the published project.

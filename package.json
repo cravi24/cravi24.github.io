@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "homepage": "http://cravi24.github.io/resume-builder",
+  "homepage": "https://cravi24.github.io",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
