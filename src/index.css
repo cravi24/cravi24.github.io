@@ -125,3 +125,10 @@ h1 {
 .themed-page a:hover {
   color: var(--accent-light);
 }
+
+.print-only { display: none; }
+
+@media print {
+  .screen-only { display: none !important; }
+  .print-only { display: inline !important; }
+}

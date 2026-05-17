@@ -1,79 +1,224 @@
 @use '../../styling/colors' as colors;
 
 .ModernTemplate {
-  max-width: 800px;
+  max-width: 820px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 2.5rem 2rem;
   color: #1a1a1a;
-  line-height: 1.5;
+  line-height: 1.55;
+  font-feature-settings: 'tnum' on;
 
-  h1 {
+  &__header {
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid #e4e7eb;
+  }
+
+  &__name {
     margin: 0;
-    font-size: 2rem;
+    font-size: 2.2rem;
+    font-weight: 700;
     color: colors.$teal-blue;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
   }
 
   &__headline {
-    font-size: 1.1rem;
-    margin: 0.25rem 0;
-    color: colors.$teal-blue;
-    opacity: 0.85;
+    font-size: 1.05rem;
+    margin: 0.4rem 0 0;
+    color: #4a5568;
+    font-weight: 500;
   }
 
   &__contact {
-    margin: 0.5rem 0 1.5rem;
-    font-size: 0.9rem;
-    color: #555;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem 1.1rem;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #4a5568;
+  }
+
+  &__contact-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: #4a5568;
+    text-decoration: none;
+    transition: color 150ms ease;
+
+    svg {
+      color: colors.$teal-blue;
+      flex-shrink: 0;
+    }
+
+    &:hover {
+      color: colors.$teal-blue;
+    }
   }
 
   &__section {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.6rem;
 
     h2 {
-      font-size: 1rem;
-      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: colors.$teal-blue;
-      border-bottom: 2px solid colors.$teal-blue;
-      padding-bottom: 0.25rem;
-      margin: 0 0 0.75rem;
+      font-weight: 700;
+      margin: 0 0 0.9rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 1px solid #e4e7eb;
     }
+  }
 
-    p { margin: 0.5rem 0; }
-    ul { margin: 0.25rem 0 0.5rem 1.25rem; padding: 0; }
-    li { margin: 0.15rem 0; }
+  &__summary {
+    margin: 0;
+    line-height: 1.65;
+    color: #2d3748;
   }
 
   &__job {
-    margin-bottom: 1rem;
+    margin-bottom: 1.1rem;
+
+    &:last-child { margin-bottom: 0; }
 
     &-head {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: baseline;
-      gap: 0.5rem;
+      gap: 0.3rem 1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    &-titles {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 0.45rem;
+    }
+
+    &-title {
+      font-size: 1rem;
+      color: #1a1a1a;
+    }
+
+    &-company {
+      color: colors.$teal-blue;
+      font-weight: 500;
+
+      &::before {
+        content: '·';
+        margin-right: 0.45rem;
+        color: #aaa;
+        font-weight: 400;
+      }
     }
 
     &-meta {
-      color: #777;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
       font-size: 0.85rem;
+      color: #6b7280;
+      font-variant-numeric: tabular-nums;
     }
+
+    &-location::before {
+      content: '·';
+      margin-right: 0.5rem;
+      color: #aaa;
+    }
+
+    &-bullets {
+      margin: 0.3rem 0 0;
+      padding-left: 1.15rem;
+      color: #2d3748;
+
+      li {
+        margin: 0.2rem 0;
+        line-height: 1.5;
+      }
+    }
+  }
+
+  &__skills {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  &__skill-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.6rem;
+
+    h3 {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #6b7280;
+      margin: 0;
+      font-weight: 600;
+      min-width: 5.5rem;
+    }
+  }
+
+  &__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  &__chip {
+    background: #eef2f3;
+    color: #2d3748;
+    padding: 0.18rem 0.55rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    border: 1px solid #dde3e5;
+  }
+
+  &__education {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  &__edu-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.4rem;
+
+    strong {
+      font-weight: 600;
+    }
+  }
+
+  &__edu-school {
+    color: #4a5568;
+  }
+
+  &__edu-year {
+    color: #6b7280;
+    font-size: 0.85rem;
+    font-variant-numeric: tabular-nums;
   }
 }
 
 @media print {
   .ModernTemplate {
     padding: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
 
     h2 {
       page-break-after: avoid;
       break-after: avoid;
-    }
-
-    &__section {
-      page-break-inside: avoid;
-      break-inside: avoid;
     }
 
     &__job {

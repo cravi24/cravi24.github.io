@@ -4,72 +4,197 @@
 .TraditionalTemplate {
   display: grid;
   grid-template-columns: 1fr;
-  max-width: 900px;
+  max-width: 940px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 2.5rem 2rem;
   font-family: 'Times New Roman', Times, serif;
   color: #1a1a1a;
-  line-height: 1.45;
+  line-height: 1.5;
+  font-feature-settings: 'tnum' on;
 
   @include mq.from-medium() {
-    grid-template-columns: 250px 1fr;
-    gap: 2rem;
+    grid-template-columns: 260px 1fr;
+    gap: 2.5rem;
   }
 
-  h1 {
+  &__header {
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.9rem;
+    border-bottom: 2px solid colors.$navy-blue;
+  }
+
+  &__name {
     margin: 0;
-    font-size: 1.75rem;
-  }
-
-  h2 {
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    margin: 1.5rem 0 0.5rem;
+    font-size: 1.85rem;
+    font-weight: 700;
     color: colors.$navy-blue;
-    border-bottom: 1px solid colors.$navy-blue;
-    padding-bottom: 0.2rem;
-  }
-
-  h3 {
-    font-size: 0.95rem;
-    margin: 0.75rem 0 0.25rem;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
   }
 
   &__headline {
     font-style: italic;
-    margin: 0.25rem 0 0;
-    color: #444;
+    margin: 0.35rem 0 0;
+    color: #4a5568;
+    font-size: 0.95rem;
   }
 
   &__sidebar {
     font-size: 0.85rem;
+  }
 
-    section { margin-top: 1rem; }
-    p { margin: 0.15rem 0; }
-    ul { margin: 0.15rem 0 0 1rem; padding: 0; }
-    li { margin: 0.1rem 0; }
+  &__sidebar-section {
+    margin-bottom: 1.4rem;
+
+    h2 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: colors.$navy-blue;
+      margin: 0 0 0.65rem;
+      padding-bottom: 0.3rem;
+      border-bottom: 1px solid #d6d9de;
+    }
+
+    h3 {
+      font-size: 0.82rem;
+      margin: 0.85rem 0 0.3rem;
+      color: #2d3748;
+      font-weight: 600;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1rem;
+    }
+
+    li {
+      margin: 0.18rem 0;
+      color: #2d3748;
+    }
+  }
+
+  &__contact-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+      color: #2d3748;
+      word-break: break-word;
+
+      svg {
+        color: colors.$navy-blue;
+        flex-shrink: 0;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+        transition: color 150ms ease;
+
+        &:hover {
+          color: colors.$navy-blue;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  &__skill-group {
+    h3 {
+      margin-top: 0.7rem;
+    }
+
+    ul {
+      list-style: disc;
+    }
   }
 
   &__edu {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.7rem;
+
+    strong {
+      display: block;
+      color: #1a1a1a;
+    }
+
+    p {
+      margin: 0.1rem 0;
+      color: #4a5568;
+    }
+
+    &-year {
+      font-size: 0.8rem;
+      color: #6b7280;
+      font-variant-numeric: tabular-nums;
+    }
   }
 
-  &__main {
-    section { margin-bottom: 1.25rem; }
-    p { margin: 0.4rem 0; }
-    ul { margin: 0.3rem 0 0.5rem 1.25rem; padding: 0; }
-    li { margin: 0.2rem 0; }
+  &__main-section {
+    margin-bottom: 1.5rem;
+
+    h2 {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: colors.$navy-blue;
+      margin: 0 0 0.75rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid colors.$navy-blue;
+    }
+  }
+
+  &__summary {
+    margin: 0;
+    line-height: 1.65;
+    color: #2d3748;
   }
 
   &__job {
-    margin-bottom: 1rem;
+    margin-bottom: 1.1rem;
+
+    &:last-child { margin-bottom: 0; }
+
+    &-head {
+      margin-bottom: 0.4rem;
+    }
+
+    h3 {
+      font-size: 1rem;
+      margin: 0;
+      color: #1a1a1a;
+      font-weight: 600;
+    }
+
+    &-company {
+      margin: 0.05rem 0 0.1rem;
+      color: colors.$navy-blue;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
 
     &-meta {
-      font-style: italic;
-      color: #666;
-      font-size: 0.9rem;
       margin: 0;
+      font-style: italic;
+      color: #6b7280;
+      font-size: 0.85rem;
+      font-variant-numeric: tabular-nums;
+    }
+
+    &-bullets {
+      margin: 0.45rem 0 0;
+      padding-left: 1.2rem;
+      color: #2d3748;
+
+      li {
+        margin: 0.2rem 0;
+        line-height: 1.55;
+      }
     }
   }
 }
@@ -77,18 +202,16 @@
 @media print {
   .TraditionalTemplate {
     padding: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
 
     h2 {
       page-break-after: avoid;
       break-after: avoid;
     }
 
-    section {
-      page-break-inside: avoid;
-      break-inside: avoid;
-    }
-
-    &__job, &__edu {
+    &__job,
+    &__edu {
       page-break-inside: avoid;
       break-inside: avoid;
     }

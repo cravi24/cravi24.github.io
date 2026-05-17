@@ -20,11 +20,10 @@ const HomePage = () => {
             Engineering teams that run <em>like clockwork.</em>
           </h1>
           <p className="HomePage__subtitle">
-            Engineering Manager · Platform &amp; Developer Productivity · Berlin
+            Engineering Manager · Berlin
           </p>
           <p className="HomePage__lede">
-            Process, velocity, and AI adoption — three gears in one machine.
-            Each earns its place; together they keep the work moving.
+            Currently at Babbel driving delivery on the next-generation payment platform and a Gatsby→Next.js framework migration. Previously led a 4-engineer team at Expedia Group developing customer-service platforms for travel agents across hotel, flight, and car bookings. Across all of it: process that fits the team's stage, velocity from removed friction, AI adoption that doesn't burn out the people doing the work.
           </p>
           <Link to={AppRoutes.ResumeBuilder} className="HomePage__cta">
             See my resume →
