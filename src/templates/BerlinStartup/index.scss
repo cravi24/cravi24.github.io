@@ -114,10 +114,28 @@
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
       border-radius: 0;
+      page-break-inside: avoid;
+      break-inside: avoid;
     }
     &__chip {
       -webkit-print-color-adjust: exact;
       print-color-adjust: exact;
+    }
+    &__body section {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    &__body h2 {
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+    &__job {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+    p, li {
+      orphans: 3;
+      widows: 3;
     }
   }
 }

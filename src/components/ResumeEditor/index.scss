@@ -121,39 +121,85 @@
   &__job {
     border: 1px solid #e5e5e5;
     border-radius: 4px;
-    padding: 0.6rem;
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.5rem;
     background: #fcfcfc;
+    overflow: hidden;
+
+    &--open {
+      background: white;
+      border-color: #ccc;
+    }
 
     &-head {
       display: flex;
+      align-items: stretch;
+      gap: 0.25rem;
+      min-height: 2rem;
+    }
+
+    &-toggle {
+      flex: 1;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 0.4rem 0.6rem;
+      cursor: pointer;
+      display: flex;
       align-items: center;
       gap: 0.5rem;
-      margin-bottom: 0.5rem;
+      font-size: 0.85rem;
+      min-width: 0;
 
-      h4 {
-        margin: 0;
-        font-size: 0.85rem;
-        font-weight: 600;
-        color: #444;
+      &:hover { background: #f5f5f5; }
+    }
+
+    &-num {
+      font-size: 0.7rem;
+      color: #888;
+      font-variant-numeric: tabular-nums;
+      flex-shrink: 0;
+    }
+
+    &-summary {
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      color: #333;
+    }
+
+    &-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.15rem;
+      padding-right: 0.4rem;
+
+      button {
+        background: transparent;
+        border: 1px solid transparent;
+        border-radius: 3px;
+        padding: 0.15rem 0.4rem;
+        font-size: 0.8rem;
+        cursor: pointer;
+        color: #777;
+        line-height: 1;
+
+        &:hover:not(:disabled) {
+          background: #fff;
+          border-color: #ccc;
+          color: #333;
+        }
+
+        &:disabled {
+          opacity: 0.3;
+          cursor: not-allowed;
+        }
       }
     }
 
-    &-remove {
-      margin-left: auto;
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 3px;
-      padding: 0.15rem 0.5rem;
-      font-size: 0.75rem;
-      cursor: pointer;
-      color: #777;
-
-      &:hover {
-        background: #fff5f5;
-        border-color: #d33;
-        color: #d33;
-      }
+    &-body {
+      padding: 0.6rem;
+      border-top: 1px solid #eee;
     }
 
     &-dates {

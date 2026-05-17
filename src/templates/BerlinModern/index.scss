@@ -85,5 +85,27 @@
 }
 
 @media print {
-  .BerlinModernTemplate { padding: 0; }
+  .BerlinModernTemplate {
+    padding: 0;
+
+    h2 {
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+
+    section {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    &__job {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    p, li {
+      orphans: 3;
+      widows: 3;
+    }
+  }
 }

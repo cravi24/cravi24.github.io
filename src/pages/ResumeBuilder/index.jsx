@@ -22,6 +22,13 @@ const ResumeBuilderPage = () => {
         >
           {editorOpen ? 'Hide editor' : 'Edit resume'}
         </button>
+        <button
+          type="button"
+          className="resume-toolbar-print"
+          onClick={() => window.print()}
+        >
+          Print / PDF
+        </button>
       </div>
       <div className={`resume-layout ${editorOpen ? 'with-editor' : ''}`}>
         {editorOpen && (

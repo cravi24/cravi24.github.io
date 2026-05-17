@@ -65,5 +65,25 @@
 @media print {
   .ModernTemplate {
     padding: 0;
+
+    h2 {
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+
+    &__section {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    &__job {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    p, li {
+      orphans: 3;
+      widows: 3;
+    }
   }
 }
