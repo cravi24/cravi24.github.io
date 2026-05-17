@@ -1,0 +1,21 @@
+.ThemeToggle {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--accent);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: color 150ms ease, border-color 150ms ease, background 150ms ease;
+  flex-shrink: 0;
+
+  &:hover {
+    color: var(--accent-light);
+    border-color: var(--accent);
+    background: rgba(255, 255, 255, 0.04);
+  }
+}

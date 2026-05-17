@@ -1,17 +1,39 @@
-@use '../../styling/colors' as colors;
 @use '../../styling/media-queries' as mq;
+
+$bg-dark: var(--bg-page);
+$brass: var(--accent);
+$brass-light: var(--accent-light);
+$cream: var(--text-primary);
+$cream-muted: var(--text-secondary);
+$line: var(--line);
 
 .HeaderComponent {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: colors.$bloody-mimosa;
-    color: white;
-    font-size: 1.2rem;
+    background: $bg-dark;
+    color: $cream;
+    font-size: 1rem;
     padding-left: 1rem;
     padding-right: 1rem;
     position: sticky;
+    top: 0;
+    z-index: 100;
     height: 10vh;
+    border-bottom: 1px solid $line;
+
+    &__theme-toggle {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+
+        @include mq.from-medium() {
+            right: 1.5rem;
+        }
+    }
+
     @include mq.from-small() {
         padding-left: calc(50% - 220px);
         padding-right: calc(50% - 220px);
@@ -35,10 +57,17 @@
     }
 
     .logo {
-        color: whitesmoke;
-        font-size: 1.5rem;
-        font-weight: bold;
+        color: $brass;
+        font-size: 0.85rem;
+        font-weight: 700;
         text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.25em;
+        transition: color 150ms ease;
+
+        &:hover {
+            color: $brass-light;
+        }
     }
 
     .nav-items {
@@ -56,30 +85,50 @@
         }
 
         ul {
-            background: colors.$bloody-mimosa;
+            background: $bg-dark;
             list-style: none;
             margin: 0;
             padding: 1rem 0 0 0;
             text-align: left;
+            border-bottom: 1px solid $line;
 
             @include mq.from-medium() {
                 display: flex;
                 flex-direction: row;
                 background: none;
+                border-bottom: none;
+                padding: 0;
             }
 
             li {
                 padding-bottom: 1rem;
                 padding-left: 1rem;
 
+                @include mq.from-medium() {
+                    padding-bottom: 0;
+                    padding-left: 1.5rem;
+                }
+
                 a {
-                    color: whitesmoke;
+                    color: $cream-muted;
                     opacity: 0;
                     text-decoration: none;
-                    transition: opacity 200ms ease-in-out;
+                    text-transform: uppercase;
+                    font-size: 0.72rem;
+                    letter-spacing: 0.18em;
+                    font-weight: 600;
+                    transition: opacity 200ms ease-in-out, color 150ms ease;
 
                     @include mq.from-medium() {
                         opacity: 1;
+                    }
+
+                    &:hover {
+                        color: $brass;
+                    }
+
+                    &.active {
+                        color: $brass;
                     }
                 }
             }
@@ -115,7 +164,7 @@
     .hamburger span::before,
     .hamburger span::after {
         content: '';
-        background: whitesmoke;
+        background: $cream;
         border-radius: 2px;
         display: block;
         height: 2px;
@@ -133,7 +182,6 @@
 
 @media print {
     .HeaderComponent {
-        // -webkit-print-color-adjust: exact;
         display: none;
     }
 }

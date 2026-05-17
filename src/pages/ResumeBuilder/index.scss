@@ -1,6 +1,10 @@
 @use '../../styling/media-queries' as mq;
 
 .resume-page {
+  background: white;
+  color: #1a1a1a;
+  min-height: 100%;
+
   .resume-controls {
     display: flex;
     flex-wrap: wrap;

@@ -1,11 +1,41 @@
-/* This ensures while priting page, document 
-   title and date are not printed */
 @page {
   size: auto;
   margin: 10mm 5mm;
 }
 
-body, textarea, input {
+:root {
+  --bg-page: #0a0e1a;
+  --bg-surface: #131826;
+  --bg-elevated: #1a2030;
+  --text-primary: #f0ead6;
+  --text-secondary: #9a9180;
+  --accent: #c89b3c;
+  --accent-light: #e2b969;
+  --accent-deep: #8b6914;
+  --line: #2a3142;
+}
+
+:root[data-theme='light'] {
+  --bg-page: #faf8f3;
+  --bg-surface: #ffffff;
+  --bg-elevated: #f0ece4;
+  --text-primary: #1a1a1a;
+  --text-secondary: #6b6457;
+  --accent: #8b6914;
+  --accent-light: #c89b3c;
+  --accent-deep: #5c4408;
+  --line: #d4cab8;
+}
+
+html,
+body {
+  background: var(--bg-page);
+  color: var(--text-primary);
+}
+
+body,
+textarea,
+input {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -15,4 +45,79 @@ body, textarea, input {
 h1 {
   margin: 0;
   padding: 0;
+}
+
+.AppComponent {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.AppComponent__main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.AppComponent__main > * {
+  flex: 1;
+}
+
+.themed-page {
+  background: var(--bg-page);
+  color: var(--text-primary);
+  padding: 4rem 1.5rem;
+  box-sizing: border-box;
+}
+
+.themed-page__inner {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.themed-page__eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  font-size: 0.7rem;
+  color: var(--accent);
+  margin: 0 0 1.25rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.themed-page__eyebrow::after {
+  content: '';
+  display: inline-block;
+  width: 2rem;
+  height: 1px;
+  background: var(--accent);
+}
+
+.themed-page h1 {
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin: 0 0 1rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.themed-page p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0 0 1rem;
+  max-width: 640px;
+}
+
+.themed-page a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: color 150ms ease;
+}
+
+.themed-page a:hover {
+  color: var(--accent-light);
 }

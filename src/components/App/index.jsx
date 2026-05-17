@@ -9,13 +9,15 @@ function App() {
     <div className="AppComponent">
       <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Header />
-        <Routes>
-          <Route path={AppRoutes.AboutMe} element={<Pages.AboutMePage />} />
-          <Route path={AppRoutes.ResumeBuilder} element={<Pages.ResumeBuilder />} />
-          <Route path={AppRoutes.TechBlogs} element={<Pages.TechBlogsPage />} />
-          <Route path={AppRoutes.PersonalBlogs} element={<Pages.PersonalBlogsPage />} />
-          <Route path={AppRoutes.Home} element={<Pages.HomePage />} />
-        </Routes>
+        <main className="AppComponent__main">
+          <Routes>
+            <Route path={AppRoutes.AboutMe} element={<Pages.AboutMePage />} />
+            <Route path={AppRoutes.ResumeBuilder} element={<Pages.ResumeBuilder />} />
+            <Route path={AppRoutes.TechBlogs} element={<Pages.TechBlogsPage />} />
+            <Route path={AppRoutes.PersonalBlogs} element={<Pages.PersonalBlogsPage />} />
+            <Route path={AppRoutes.Home} element={<Pages.HomePage />} />
+          </Routes>
+        </main>
         <Footer />
       </BrowserRouter>
     </div>

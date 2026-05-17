@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import AppRoutes from '../../constants/Routes';
+import ThemeToggle from '../ThemeToggle';
 
 import './index.scss';
 
@@ -27,6 +28,7 @@ function Header() {
       >
         <span></span>
       </button>
+      <ThemeToggle className="HeaderComponent__theme-toggle" />
       <nav className={`nav-items ${showNavItems ? 'visible' : ''}`}>
         <ul>
           <li>
