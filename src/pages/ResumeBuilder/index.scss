@@ -1,106 +1,51 @@
 @use '../../styling/media-queries' as mq;
 
-.resume-container {
-    margin: 1rem 0;
-    padding: 0 1rem;
+.resume-page {
+  .resume-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #eee;
+    background: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    .resume-toolbar-toggle {
+      margin-left: auto;
+      background: white;
+      border: 1px solid #ccc;
+      padding: 0.4rem 0.8rem;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 0.9rem;
+
+      &:hover { background: #f5f5f5; }
+    }
+  }
+
+  .resume-layout {
     display: grid;
-    grid-template-areas:
-        'font-selector'
-        'introduction'
-        'contact'
-        'work'
-        'education'
-        'skills';
+    grid-template-columns: 1fr;
 
-    @include mq.from-small() {
-        padding-left: calc(50% - 220px);
-        padding-right: calc(50% - 220px);
+    &.with-editor {
+      @include mq.from-large() {
+        grid-template-columns: 360px 1fr;
+      }
     }
+  }
 
-    @include mq.from-medium() {
-        padding-left: calc(50% - 300px);
-        padding-right: calc(50% - 300px);
-    }
-
-    @include mq.from-semi-large() {
-        padding-left: calc(50% - 320px);
-        padding-right: calc(50% - 320px);
-    }
-
-    @include mq.from-large() {
-        position: relative;
-        padding-left: 15%;
-        padding-right: 15%;
-        display: grid;
-        grid-template-columns: 30% 70%;
-        grid-template-areas:
-            'font-selector font-selector'
-            'introduction introduction'
-            'contact work'
-            'skills work'
-            'skills education';
-    }
-
-    .container-headers {
-        font-size: 24px;
-        font-weight: bold;
-        display: flex;
-        justify-content: space-between;
-        border-bottom: 1px solid lightgray;
-        width: 100%;
-        margin: 1rem 0;
-
-        img {
-            height: 25px;
-            width: 25px;
-        }
-    }
-
-    .header-with-icon {
-        display: flex;
-        width: 95%;
-
-        img {
-            margin-right: 1rem;
-        }
-    }
-
-    .work {
-        grid-area: work;
-        @include mq.from-large() {
-            margin-left: 2rem;
-        }
-    }
-
-    .education {
-        grid-area: education;
-        @include mq.from-large() {
-            margin-left: 2rem;
-        }
-    }
-
-    .skills {
-        grid-area: skills;
-    }
+  .resume-preview {
+    padding: 1rem;
+    overflow-y: auto;
+  }
 }
 
 @media print {
-    .resume-container {
-        margin: 0;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        display: grid;
-        grid-template-columns: 30% 70%;
-        grid-template-areas:
-            'font-selector font-selector'
-            'introduction introduction'
-            'contact work'
-            'skills work'
-            'skills education';
-    }
-
-    .work,
-    .education {
-        margin-left: 2rem;
-    }
+  .resume-page {
+    .resume-controls { display: none; }
+    .resume-layout { display: block; }
+    .resume-preview { padding: 0; }
+  }
 }

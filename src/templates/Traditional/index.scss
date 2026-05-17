@@ -1,0 +1,79 @@
+@use '../../styling/colors' as colors;
+@use '../../styling/media-queries' as mq;
+
+.TraditionalTemplate {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: 'Times New Roman', Times, serif;
+  color: #1a1a1a;
+  line-height: 1.45;
+
+  @include mq.from-medium() {
+    grid-template-columns: 250px 1fr;
+    gap: 2rem;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin: 1.5rem 0 0.5rem;
+    color: colors.$navy-blue;
+    border-bottom: 1px solid colors.$navy-blue;
+    padding-bottom: 0.2rem;
+  }
+
+  h3 {
+    font-size: 0.95rem;
+    margin: 0.75rem 0 0.25rem;
+  }
+
+  &__headline {
+    font-style: italic;
+    margin: 0.25rem 0 0;
+    color: #444;
+  }
+
+  &__sidebar {
+    font-size: 0.85rem;
+
+    section { margin-top: 1rem; }
+    p { margin: 0.15rem 0; }
+    ul { margin: 0.15rem 0 0 1rem; padding: 0; }
+    li { margin: 0.1rem 0; }
+  }
+
+  &__edu {
+    margin-bottom: 0.5rem;
+  }
+
+  &__main {
+    section { margin-bottom: 1.25rem; }
+    p { margin: 0.4rem 0; }
+    ul { margin: 0.3rem 0 0.5rem 1.25rem; padding: 0; }
+    li { margin: 0.2rem 0; }
+  }
+
+  &__job {
+    margin-bottom: 1rem;
+
+    &-meta {
+      font-style: italic;
+      color: #666;
+      font-size: 0.9rem;
+      margin: 0;
+    }
+  }
+}
+
+@media print {
+  .TraditionalTemplate { padding: 0; }
+}

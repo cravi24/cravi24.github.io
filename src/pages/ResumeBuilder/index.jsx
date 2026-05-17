@@ -1,33 +1,35 @@
-import Contact from '../../components/Contact';
-import Introduction from '../../components/Introduction';
-import TechSkills from '../../components/TechSkills';
-import Language from '../../components/Language';
-import WorkHistoryList from '../../components/WorkHistoryList';
-import EducationList from '../../components/EducationList';
-
-import './index.scss';
-import FontSelector from '../../components/FontSelector';
 import { useState } from 'react';
+import TemplatePicker from '../../components/TemplatePicker';
+import ResumeEditor from '../../components/ResumeEditor';
+import Templates from '../../templates';
+import useResume from '../../hooks/useResume';
+import './index.scss';
 
 const ResumeBuilderPage = () => {
-  const [font, setFont] = useState('Rubik');
-  const fontStyle = {
-    fontFamily: font,
-  };
+  const [templateKey, setTemplateKey] = useState('modern');
+  const [editorOpen, setEditorOpen] = useState(true);
+  const { user, setUser, merged, isDummy, reset } = useResume();
+  const Template = Templates[templateKey].component;
+
   return (
-    <div className="resume-container" style={fontStyle}>
-      <FontSelector setFont={setFont} />
-      <Introduction />
-      <Contact />
-      <div className="work">
-        <WorkHistoryList />
+    <div className="resume-page">
+      <div className="resume-controls">
+        <TemplatePicker value={templateKey} onChange={setTemplateKey} />
+        <button
+          type="button"
+          className="resume-toolbar-toggle"
+          onClick={() => setEditorOpen(!editorOpen)}
+        >
+          {editorOpen ? 'Hide editor' : 'Edit resume'}
+        </button>
       </div>
-      <div className="education">
-        <EducationList />
-      </div>
-      <div className="skills">
-        <TechSkills />
-        <Language />
+      <div className={`resume-layout ${editorOpen ? 'with-editor' : ''}`}>
+        {editorOpen && (
+          <ResumeEditor user={user} setUser={setUser} isDummy={isDummy} reset={reset} />
+        )}
+        <div className="resume-preview">
+          <Template resume={merged} />
+        </div>
       </div>
     </div>
   );

@@ -1,0 +1,226 @@
+.ResumeEditor {
+  background: #fafafa;
+  border-right: 1px solid #eee;
+  padding: 1rem;
+  overflow-y: auto;
+
+  h2 {
+    font-size: 1.1rem;
+    margin: 0 0 0.25rem;
+  }
+
+  &__hint {
+    font-size: 0.8rem;
+    color: #666;
+    margin: 0 0 1rem;
+  }
+
+  &__section {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    background: white;
+  }
+
+  &__section-head {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+
+    &:hover { background: #f5f5f5; }
+  }
+
+  &__chevron {
+    margin-left: auto;
+    color: #999;
+    font-size: 0.75rem;
+  }
+
+  &__badge {
+    font-size: 0.65rem;
+    background: #fff3cd;
+    color: #856404;
+    padding: 0.1rem 0.4rem;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+  }
+
+  &__section-body {
+    padding: 0.75rem;
+    border-top: 1px solid #eee;
+
+    label {
+      display: block;
+      margin-bottom: 0.6rem;
+
+      span {
+        display: block;
+        font-size: 0.75rem;
+        color: #555;
+        margin-bottom: 0.2rem;
+        text-transform: capitalize;
+        font-weight: 500;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 0.4rem;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        font-size: 0.9rem;
+        font-family: inherit;
+        box-sizing: border-box;
+
+        &:focus {
+          outline: none;
+          border-color: #66afe9;
+          box-shadow: 0 0 0 2px rgba(102, 175, 233, 0.25);
+        }
+      }
+    }
+  }
+
+  &__row {
+    display: flex;
+    gap: 0.4rem;
+    margin-bottom: 0.4rem;
+    align-items: center;
+
+    input {
+      flex: 1;
+      padding: 0.3rem;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      font-size: 0.85rem;
+      min-width: 0;
+    }
+
+    button {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      padding: 0.2rem 0.5rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+
+      &:hover { background: #f5f5f5; }
+    }
+  }
+
+  &__job {
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    padding: 0.6rem;
+    margin-bottom: 0.6rem;
+    background: #fcfcfc;
+
+    &-head {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+
+      h4 {
+        margin: 0;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #444;
+      }
+    }
+
+    &-remove {
+      margin-left: auto;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      padding: 0.15rem 0.5rem;
+      font-size: 0.75rem;
+      cursor: pointer;
+      color: #777;
+
+      &:hover {
+        background: #fff5f5;
+        border-color: #d33;
+        color: #d33;
+      }
+    }
+
+    &-dates {
+      display: flex;
+      gap: 0.5rem;
+
+      label { flex: 1; }
+    }
+  }
+
+  &__achievements {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px dashed #eee;
+
+    &-label {
+      display: block;
+      font-size: 0.75rem;
+      color: #555;
+      font-weight: 500;
+      margin-bottom: 0.35rem;
+    }
+  }
+
+  &__add {
+    background: #fff;
+    border: 1px dashed #aaa;
+    padding: 0.4rem 0.8rem;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    width: 100%;
+
+    &:hover { background: #f5f5f5; border-style: solid; }
+
+    &--inner {
+      padding: 0.25rem 0.6rem;
+      font-size: 0.78rem;
+      margin-top: 0.25rem;
+    }
+  }
+
+  &__placeholder {
+    font-size: 0.85rem;
+    color: #777;
+    font-style: italic;
+    margin: 0;
+  }
+
+  &__clear {
+    margin-top: 1rem;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.9rem;
+
+    &:hover {
+      background: #fff5f5;
+      border-color: #d33;
+      color: #d33;
+    }
+  }
+}
+
+@media print {
+  .ResumeEditor { display: none; }
+}
